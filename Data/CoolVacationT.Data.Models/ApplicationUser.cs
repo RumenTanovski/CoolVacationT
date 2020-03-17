@@ -33,5 +33,7 @@ namespace CoolVacationT.Data.Models
         public virtual ICollection<IdentityUserClaim<string>> Claims { get; set; }
 
         public virtual ICollection<IdentityUserLogin<string>> Logins { get; set; }
+
+        public virtual ICollection<FeedBack> FeedBacks { get; set; }
     }
 }
