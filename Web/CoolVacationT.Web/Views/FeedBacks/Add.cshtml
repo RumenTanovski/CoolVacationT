@@ -1,0 +1,17 @@
+﻿
+@using CoolVacationT.Common
+@{
+    this.ViewData["Title"] = "Add FeedBack";
+}
+
+<form mtehod="post">
+    <div class="form-group">
+        <label for="rating">Rating</label>
+        <input type="number" min="1" max="10" class="form-control" id="rating" name="Rating">
+    </div>
+    <div class="form-group">
+        <label for="comment">Comment</label>
+        <input type="text" class="form-control" id="comment" name="Comment">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

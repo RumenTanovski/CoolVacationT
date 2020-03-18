@@ -23,4 +23,8 @@
     <ProjectReference Include="..\..\Services\CoolVacationT.Services.Mapping\CoolVacationT.Services.Mapping.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="FeedBacks\ViewModels\" />
+  </ItemGroup>
+
 </Project>
