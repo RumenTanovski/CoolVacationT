@@ -30,6 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\CoolVacationT.Common\CoolVacationT.Common.csproj" />
     <ProjectReference Include="..\..\Data\CoolVacationT.Data.Models\CoolVacationT.Data.Models.csproj" />
     <ProjectReference Include="..\..\Data\CoolVacationT.Data\CoolVacationT.Data.csproj" />
     <ProjectReference Include="..\..\Services\CoolVacationT.Services.Data\CoolVacationT.Services.Data.csproj" />

@@ -9,11 +9,11 @@
     using CoolVacationT.Web.ViewModels.FeedBacks.InputModels;
     using Microsoft.AspNetCore.Mvc;
 
-    public class FeedBackController : BaseController
+    public class FeedBacksController : BaseController
     {
         private readonly IFeedBackService feedBackService;
 
-        public FeedBackController(IFeedBackService feedBackService)
+        public FeedBacksController(IFeedBackService feedBackService)
         {
             this.feedBackService = feedBackService;
         }
