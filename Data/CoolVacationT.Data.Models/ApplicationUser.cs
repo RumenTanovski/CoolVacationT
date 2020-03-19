@@ -16,6 +16,7 @@ namespace CoolVacationT.Data.Models
             this.Roles = new HashSet<IdentityUserRole<string>>();
             this.Claims = new HashSet<IdentityUserClaim<string>>();
             this.Logins = new HashSet<IdentityUserLogin<string>>();
+            this.FeedBacks = new HashSet<FeedBack>();
         }
 
         // Audit info
