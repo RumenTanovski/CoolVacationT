@@ -7,6 +7,7 @@
 
     using CoolVacationT.Services.Data;
     using CoolVacationT.Web.ViewModels.FeedBacks.InputModels;
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
 
     public class FeedBacksController : BaseController
@@ -23,6 +24,7 @@
             return this.View();
         }
 
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Add(CreateFeedBackInputModel inputModel)
         {
