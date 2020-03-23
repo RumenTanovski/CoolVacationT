@@ -31,12 +31,14 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\CoolVacationT.Common\CoolVacationT.Common.csproj" />
+    <ProjectReference Include="..\..\Data\CoolVacationT.Data.Common\CoolVacationT.Data.Common.csproj" />
     <ProjectReference Include="..\..\Data\CoolVacationT.Data.Models\CoolVacationT.Data.Models.csproj" />
     <ProjectReference Include="..\..\Data\CoolVacationT.Data\CoolVacationT.Data.csproj" />
     <ProjectReference Include="..\..\Services\CoolVacationT.Services.Data\CoolVacationT.Services.Data.csproj" />
     <ProjectReference Include="..\..\Services\CoolVacationT.Services.Mapping\CoolVacationT.Services.Mapping.csproj" />
     <ProjectReference Include="..\..\Services\CoolVacationT.Services.Messaging\CoolVacationT.Services.Messaging.csproj" />
     <ProjectReference Include="..\..\Services\CoolVacationT.Services\CoolVacationT.Services.csproj" />
+    <ProjectReference Include="..\..\Tests\CoolVacationT.Services.Data.Tests\CoolVacationT.Services.Data.Tests.csproj" />
     <ProjectReference Include="..\CoolVacationT.Web.Infrastructure\CoolVacationT.Web.Infrastructure.csproj" />
     <ProjectReference Include="..\CoolVacationT.Web.ViewModels\CoolVacationT.Web.ViewModels.csproj" />
   </ItemGroup>

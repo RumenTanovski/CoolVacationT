@@ -1,10 +1,9 @@
 ﻿namespace CoolVacationT.Web.ViewModels.FeedBacks.InputModels
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Text;
+    using CoolVacationT.Data.Models;
+    using CoolVacationT.Services.Mapping;
 
-    public class CreateFeedBackInputModel
+    public class CreateFeedBackInputModel : IMapTo<FeedBack>
     {
         public int Rating { get; set; }
 
