@@ -4,14 +4,16 @@ using CoolVacationT.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CoolVacationT.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200325131300_AddPeriodResrvation")]
+    partial class AddPeriodResrvation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -174,46 +176,6 @@ namespace CoolVacationT.Data.Migrations
                     b.ToTable("FeedBacks");
                 });
 
-            modelBuilder.Entity("CoolVacationT.Data.Models.Payment", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<decimal>("AmountOwing")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("AmountPaid")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("ModifiedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("PicPaid")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ReservationId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("IsDeleted");
-
-                    b.HasIndex("ReservationId");
-
-                    b.ToTable("Payments");
-                });
-
             modelBuilder.Entity("CoolVacationT.Data.Models.Period", b =>
                 {
                     b.Property<int>("Id")
@@ -258,12 +220,6 @@ namespace CoolVacationT.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("ApplicationUserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<bool>("Confirmed")
-                        .HasColumnType("bit");
-
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
@@ -279,9 +235,10 @@ namespace CoolVacationT.Data.Migrations
                     b.Property<int>("NoOfPeople")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.Property<int>("PeriodId")
+                        .HasColumnType("int");
 
-                    b.HasIndex("ApplicationUserId");
+                    b.HasKey("Id");
 
                     b.HasIndex("IsDeleted");
 
@@ -431,15 +388,6 @@ namespace CoolVacationT.Data.Migrations
                         .HasForeignKey("ApplicationUserId");
                 });
 
-            modelBuilder.Entity("CoolVacationT.Data.Models.Payment", b =>
-                {
-                    b.HasOne("CoolVacationT.Data.Models.Reservation", "Reservation")
-                        .WithMany("Payments")
-                        .HasForeignKey("ReservationId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("CoolVacationT.Data.Models.Period", b =>
                 {
                     b.HasOne("CoolVacationT.Data.Models.Reservation", "Reservation")
@@ -447,13 +395,6 @@ namespace CoolVacationT.Data.Migrations
                         .HasForeignKey("ReservationId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("CoolVacationT.Data.Models.Reservation", b =>
-                {
-                    b.HasOne("CoolVacationT.Data.Models.ApplicationUser", "ApplicationUser")
-                        .WithMany("Reservations")
-                        .HasForeignKey("ApplicationUserId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

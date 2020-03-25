@@ -17,6 +17,7 @@ namespace CoolVacationT.Data.Models
             this.Claims = new HashSet<IdentityUserClaim<string>>();
             this.Logins = new HashSet<IdentityUserLogin<string>>();
             this.FeedBacks = new HashSet<FeedBack>();
+            this.Reservations = new HashSet<Reservation>();
         }
 
         // Audit info
@@ -36,5 +37,7 @@ namespace CoolVacationT.Data.Models
         public virtual ICollection<IdentityUserLogin<string>> Logins { get; set; }
 
         public virtual ICollection<FeedBack> FeedBacks { get; set; }
+
+        public virtual ICollection<Reservation> Reservations { get; set; }
     }
 }

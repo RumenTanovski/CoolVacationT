@@ -8,12 +8,12 @@
 
     public class FeedBack : BaseDeletableModel<string>
     {
-        public string UserId { get; set; }
-
-        public virtual ApplicationUser ApplicationUser { get; set; }
-
         public int Rating { get; set; }
 
         public string Comment { get; set; }
+
+        public string ApplicationUserId { get; set; }
+
+        public virtual ApplicationUser ApplicationUser { get; set; }
     }
 }

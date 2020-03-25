@@ -24,9 +24,16 @@
         {
         }
 
+        public DbSet<Setting> Settings { get; set; }
+
         public DbSet<FeedBack> FeedBacks { get; set; }
 
-        public DbSet<Setting> Settings { get; set; }
+        public DbSet<Period> Periods { get; set; }
+
+        public DbSet<Reservation> Reservations { get; set; }
+
+        public DbSet<Payment> Payments { get; set; }
+
 
         public override int SaveChanges() => this.SaveChanges(true);
 
