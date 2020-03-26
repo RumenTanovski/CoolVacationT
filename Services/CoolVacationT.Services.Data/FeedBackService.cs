@@ -7,27 +7,31 @@
 
     using CoolVacationT.Data.Common.Repositories;
     using CoolVacationT.Data.Models;
+    using Microsoft.AspNetCore.Identity;
 
     public class FeedBackService : IFeedBackService
     {
         private readonly IDeletableEntityRepository<FeedBack> feedBackRepository;
 
-        public FeedBackService(IDeletableEntityRepository<FeedBack> feedBackRepository)
+        public FeedBackService(
+            IDeletableEntityRepository<FeedBack> feedBackRepository)
         {
             this.feedBackRepository = feedBackRepository;
         }
 
-        public async Task AddAsync(int rating, string comment)
+        public async Task<string> AddAsync(int rating, string comment, string id)
         {
             var feedBack = new FeedBack
             {
                 Id = Guid.NewGuid().ToString(),
                 Rating = rating,
                 Comment = comment,
+                ApplicationUserId = id,
             };
 
             await this.feedBackRepository.AddAsync(feedBack);
             await this.feedBackRepository.SaveChangesAsync();
+            return feedBack.Id;
         }
     }
 }

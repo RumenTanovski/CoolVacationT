@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CoolVacationT.Services.Data
+﻿namespace CoolVacationT.Services.Data
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+    using System.Threading.Tasks;
+
     public interface IFeedBackService
     {
-        Task AddAsync(int rating, string comment);
+        Task<string> AddAsync(int rating, string comment, string id);
     }
 }
