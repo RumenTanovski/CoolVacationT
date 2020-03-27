@@ -12,6 +12,7 @@
         {
             this.Periods = new HashSet<Period>();
             this.Payments = new HashSet<Payment>();
+            this.RelaxPrograms = new HashSet<RelaxProgram>();
         }
 
         public int NoOfPeople { get; set; }
@@ -25,5 +26,8 @@
         public virtual ICollection<Period> Periods { get; set; }
 
         public virtual ICollection<Payment> Payments { get; set; }
+
+        public virtual ICollection<RelaxProgram> RelaxPrograms { get; set; }
+
     }
 }
