@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     using System.Text;
 
     using CoolVacationT.Data.Common.Models;
@@ -15,10 +16,13 @@
             this.RelaxPrograms = new HashSet<RelaxProgram>();
         }
 
+        [Required]
+        [Range(1, 14)]
         public int NoOfPeople { get; set; }
 
         public bool Confirmed { get; set; }
 
+        [Required]
         public string ApplicationUserId { get; set; }
 
         public virtual ApplicationUser ApplicationUser { get; set; }
