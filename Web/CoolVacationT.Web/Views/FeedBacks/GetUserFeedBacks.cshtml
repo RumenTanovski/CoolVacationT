@@ -1,0 +1,22 @@
+﻿@using CoolVacationT.Common
+@using CoolVacationT.Web.ViewModels.FeedBacks.ViewModels
+@model FeedBacksUserViewModel
+@{
+    ViewData["Title"] = "GetUserFeedBacks";
+}
+
+<h1 class="display-3">My Feed Backs</h1>
+<div class="alert alert-info">
+    My Feed Backs
+</div>
+
+@foreach (var feedBack in Model.FeedBacks)
+{
+    <div class="card" style="width: 18rem;">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">@feedBack.Rating</li>
+            <li class="list-group-item">@feedBack.Comment</li>
+        </ul>
+    </div>
+}
+

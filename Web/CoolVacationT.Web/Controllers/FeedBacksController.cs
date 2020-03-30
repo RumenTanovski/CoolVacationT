@@ -7,6 +7,7 @@
     using CoolVacationT.Data.Models;
     using CoolVacationT.Services.Data;
     using CoolVacationT.Web.ViewModels.FeedBacks.InputModels;
+    using CoolVacationT.Web.ViewModels.FeedBacks.ViewModels;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
@@ -38,6 +39,17 @@
             await this.feedBackService.AddAsync(inputModel.Rating, inputModel.Comment, user.Id);
 
             return this.Redirect("/");
+        }
+
+        [Authorize]
+        public async Task<IActionResult> GetUserFeedBacks()
+        {
+            var user = await this.userManager.GetUserAsync(this.User);
+
+            var feeds = this.feedBackService.GetFeedBacks(user.Id);
+            FeedBacksUserViewModel viewModel = new FeedBacksUserViewModel(feeds);
+
+            return this.View(viewModel);
         }
     }
 }

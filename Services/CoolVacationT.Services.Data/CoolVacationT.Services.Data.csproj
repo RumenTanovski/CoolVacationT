@@ -21,6 +21,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Data\CoolVacationT.Data.Common\CoolVacationT.Data.Common.csproj" />
     <ProjectReference Include="..\..\Data\CoolVacationT.Data.Models\CoolVacationT.Data.Models.csproj" />
+    <ProjectReference Include="..\..\Web\CoolVacationT.Web.ViewModels\CoolVacationT.Web.ViewModels.csproj" />
     <ProjectReference Include="..\CoolVacationT.Services.Mapping\CoolVacationT.Services.Mapping.csproj" />
   </ItemGroup>
 
