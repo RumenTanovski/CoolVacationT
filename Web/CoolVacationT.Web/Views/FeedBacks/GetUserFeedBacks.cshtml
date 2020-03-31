@@ -6,20 +6,18 @@
 }
 
 <h1 class="display-3">My Feed Backs</h1>
-<div class="alert alert-info">
-    My Feed Backs
-</div>
 
 @foreach (var feedBack in Model.FeedBacks)
 {
-    <div class="card" style="width: 18rem;">
+    <div class="card" style="width: 72rem;">
+        <div class="alert alert-info">
+            From -> @feedBack.CreatedOn
+        </div>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">From -> @feedBack.CreatedOn</li>
             <li class="list-group-item">Rating -> @feedBack.Rating</li>
             <li class="list-group-item">Comment -> @feedBack.Comment</li>
-            <li class="list-group-item"> </li>
-
         </ul>
     </div>
+    <p> </p>
 }
 
