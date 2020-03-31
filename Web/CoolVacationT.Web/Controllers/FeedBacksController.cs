@@ -36,7 +36,7 @@
         public async Task<IActionResult> Add(CreateFeedBackInputModel inputModel)
         {
             var user = await this.userManager.GetUserAsync(this.User);
-            await this.feedBackService.AddAsync(inputModel.Rating, inputModel.Comment, user.Id);
+            await this.feedBackService.AddAsync(user.Id, inputModel.Rating, inputModel.Comment);
 
             return this.Redirect("/");
         }

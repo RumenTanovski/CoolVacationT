@@ -10,7 +10,7 @@
 
     public interface IFeedBackService
     {
-        Task<string> AddAsync(int rating, string comment, string id);
+        Task<string> AddAsync(string id, int rating, string comment);
 
         IEnumerable<FeedBackViewModel> GetFeedBacks(string id);
     }

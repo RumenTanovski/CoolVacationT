@@ -5,7 +5,7 @@
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
-    using AutoMapper;
+
     using CoolVacationT.Data.Common.Repositories;
     using CoolVacationT.Data.Models;
     using CoolVacationT.Web.ViewModels.FeedBacks.ViewModels;
@@ -21,7 +21,7 @@
             this.feedBackRepository = feedBackRepository;
         }
 
-        public async Task<string> AddAsync(int rating, string comment, string id)
+        public async Task<string> AddAsync(string id, int rating, string comment)
         {
             var feedBack = new FeedBack
             {
@@ -44,6 +44,7 @@
 
             IEnumerable<FeedBackViewModel> usersViewModel = feedBacks.Select(f => new FeedBackViewModel
             {
+                CreatedOn = f.CreatedOn,
                 Rating = f.Rating,
                 Comment = f.Comment,
             })
