@@ -12,7 +12,7 @@
 
         public const string PicTrapezaria = "https://apriltsi.org/uploads/hotels-images/482/velena_trapezariya.jpg";
 
-        public const string PicKitchen = "https://https://apriltsi.org/uploads/hotels-images/487/251876_439461772742230_1327222704_n.jpg";
+        public const string PicKitchen = "https://apriltsi.org/uploads/hotels-images/487/251876_439461772742230_1327222704_n.jpg";
 
         public const string PicCoupleRoom = "https://apriltsi.org/uploads/hotels-images/484/velena_dvoina_staq.jpg";
 
