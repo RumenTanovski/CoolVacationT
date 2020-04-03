@@ -9,7 +9,7 @@
 
     public interface IReservationService
     {
-        Task<int> AddAsync(string id, int noOfPeople, int periodId);//, Payment payment, RelaxProgram relaxProgram);
+        Task<int> AddAsync(string id, int noOfPeople);//, Payment payment, RelaxProgram relaxProgram);
 
         //IEnumerable<ReservationViewModel> GetFeedBacks(string id);
     }

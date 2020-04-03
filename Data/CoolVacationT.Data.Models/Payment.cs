@@ -9,11 +9,6 @@
 
     public class Payment : BaseDeletableModel<int>
     {
-        public Payment()
-        {
-            this.Reservations = new HashSet<Reservation>();
-        }
-
         [Required]
         [Range(0, double.MaxValue)]
         public decimal AmountPaid { get; set; }
@@ -23,6 +18,9 @@
 
         public decimal AmountOwing { get; set; }
 
-        public virtual ICollection<Reservation> Reservations { get; set; }
+        //[Required]
+        public string ReservationId { get; set; }
+
+        public virtual Reservation Reservation { get; set; }
     }
 }

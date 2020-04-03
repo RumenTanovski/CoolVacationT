@@ -9,6 +9,13 @@
 
     public class Reservation : BaseDeletableModel<int>
     {
+        public Reservation()
+        {
+            this.RelaxPrograms = new HashSet<RelaxProgram>();
+            this.Periods = new HashSet<Period>();
+            this.Payments = new HashSet<Payment>();
+        }
+
         [Required]
         [Range(1, 14)]
         public int NoOfPeople { get; set; }
@@ -20,19 +27,10 @@
 
         public virtual ApplicationUser ApplicationUser { get; set; }
 
-        [Required]
-        public int PeriodId { get; set; }
+        public virtual ICollection<RelaxProgram> RelaxPrograms { get; set; }
 
-        public virtual Period Period { get; set; }
+        public virtual ICollection<Period> Periods { get; set; }
 
-        [Required]
-        public int PaymentId { get; set; }
-
-        public virtual Payment Payment { get; set; }
-
-        [Required]
-        public int RelaxProgramId { get; set; }
-
-        public virtual RelaxProgram RelaxProgram { get; set; }
+        public virtual ICollection<Payment> Payments { get; set; }
     }
 }

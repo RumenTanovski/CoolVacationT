@@ -14,16 +14,13 @@
 
     public class ReservationsController : BaseController
     {
-        private readonly PeriodsController periodsController;
         private readonly IReservationService reservationService;
         private readonly UserManager<ApplicationUser> userManager;
 
         public ReservationsController(
-            PeriodsController periodsController,
             IReservationService reservationService,
             UserManager<ApplicationUser> userManager)
         {
-            this.periodsController = periodsController;
             this.reservationService = reservationService;
             this.userManager = userManager;
         }
@@ -44,13 +41,9 @@
         public async Task<IActionResult> Add(CreateReservationInputModel inputModel)
         {
             var user = await this.userManager.GetUserAsync(this.User);
-            this.periodsController.Add();
-            var periodId = int.Parse(this.ViewData["PeriodId"].ToString());
-            await this.reservationService.AddAsync(user.Id, inputModel.NoOfPeople, periodId);
+            await this.reservationService.AddAsync(user.Id, inputModel.NoOfPeople);
 
             return this.Redirect("/");
         }
-
-
     }
 }

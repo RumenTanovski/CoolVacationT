@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
 
@@ -11,20 +12,29 @@
 
     public class ReservationService : IReservationService
     {
+        private readonly IDeletableEntityRepository<Period> periodRepository;
         private readonly IDeletableEntityRepository<Reservation> reservationRepository;
 
         public ReservationService(
+            IDeletableEntityRepository<Period> periodRepository,
             IDeletableEntityRepository<Reservation> reservationRepository)
         {
+            this.periodRepository = periodRepository;
             this.reservationRepository = reservationRepository;
         }
 
-        public async Task<int> AddAsync(string id, int noOfPeople, int periodId)//, Payment payment, RelaxProgram relaxProgram)
+        public async Task<int> AddAsync(string id, int noOfPeople)//, Payment payment, RelaxProgram relaxProgram)
         {
+            IEnumerable<Period> periods = this.periodRepository
+                .All()
+                .ToList();
+
+            Period period = periods.OrderByDescending(x => x.Id).FirstOrDefault();
             var reservation = new Reservation
             {
                 NoOfPeople = noOfPeople,
-                PeriodId = periodId,
+                
+                //PeriodId = period.Id,
               //Payment = payment,
               //RelaxProgram = relaxProgram,
                 ApplicationUserId = id,

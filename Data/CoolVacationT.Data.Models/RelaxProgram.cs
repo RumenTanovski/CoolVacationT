@@ -9,17 +9,15 @@
 
     public class RelaxProgram : BaseDeletableModel<int>
     {
-        public RelaxProgram()
-        {
-            this.Reservations = new HashSet<Reservation>();
-        }
-
         public string EcoTrail { get; set; }
 
         public string Party { get; set; }
 
         public string SwimmingPool { get; set; }
 
-        public virtual ICollection<Reservation> Reservations { get; set; }
+        //[Required]
+        public string ReservationId { get; set; }
+
+        public virtual Reservation Reservation { get; set; }
     }
 }

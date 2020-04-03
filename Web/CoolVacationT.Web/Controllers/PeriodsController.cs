@@ -32,11 +32,10 @@
         public async Task<IActionResult> Add(CreatePeriodInputModel inputModel)
         {
             var periodId = await this.periodService.AddAsync(inputModel.ArrivalDate, inputModel.DepartDate);
-            this.ViewData["PeriodId"] = periodId;
-            
+                        
             // To DO correct REDIRECTION
 
-            return this.Redirect("/");
+            return this.Redirect("/Reservations/Add");
         }
 
     }
