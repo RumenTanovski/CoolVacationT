@@ -51,12 +51,17 @@
 
             services.AddSingleton(this.configuration);
 
+            services.AddMvc().AddControllersAsServices();
+
             // Data repositories
             services.AddScoped(typeof(IDeletableEntityRepository<>), typeof(EfDeletableEntityRepository<>));
             services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
             services.AddScoped<IDbQueryRunner, DbQueryRunner>();
 
             // Application services
+            services.AddTransient<IReservationService, ReservationService>();
+            services.AddTransient<IPeriodService, PeriodService>();
+
             services.AddTransient<IFeedBackService, FeedBackService>();
             services.AddTransient<IEmailSender, NullMessageSender>();
             services.AddTransient<ISettingsService, SettingsService>();
@@ -103,9 +108,12 @@
             app.UseEndpoints(
                 endpoints =>
                     {
-                        endpoints.MapControllerRoute("areaRoute", "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+                        endpoints.MapControllerRoute("reservation", "{controller=Reservations}/{action=Add}/{id?}");
+                        endpoints.MapControllerRoute("period", "{controller=Periods}/{action=Add}/{id?}");
+
                         endpoints.MapControllerRoute("feedBack", "{controller=FeedbBacks}/{action=Add}/{id?}");
                         endpoints.MapControllerRoute("feedBack", "{controller=FeedbBacks}/{action=GetUserFeedBacks}/{id?}");
+                        endpoints.MapControllerRoute("areaRoute", "{area:exists}/{controller=Home}/{action=Index}/{id?}");
                         endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
                         endpoints.MapRazorPages();
                     });

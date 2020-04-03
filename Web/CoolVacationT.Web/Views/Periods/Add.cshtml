@@ -1,0 +1,19 @@
+﻿@using CoolVacationT.Common
+@using CoolVacationT.Web.ViewModels.Period.InputModel
+@model CreatePeriodInputModel
+
+@{
+    this.ViewData["Title"] = "Add Period";
+}
+
+<form asp-controller="Periods"  asp-action="Add" mtehod="post">
+    <div class="form-group">
+        <label for="rating">Date of arrival</label>
+        <input type="date" class="form-control" id="arrivalDate" name="ArrivalDate">
+    </div>
+    <div class="form-group">
+        <label for="comment">Date of departure</label>
+        <input type="date" class="form-control" id="departDate" name="DepartDate">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

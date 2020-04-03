@@ -9,15 +9,17 @@
 
     public class Period : BaseDeletableModel<int>
     {
+        public Period()
+        {
+            this.Reservations = new HashSet<Reservation>();
+        }
+
         [Required]
         public DateTime ArrivalDate { get; set; }
 
         [Required]
         public DateTime DepartDate { get; set; }
 
-        [Required]
-        public int ReservationId { get; set; }
-
-        public virtual Reservation Reservation { get; set; }
+        public virtual ICollection<Reservation> Reservations { get; set; }
     }
 }

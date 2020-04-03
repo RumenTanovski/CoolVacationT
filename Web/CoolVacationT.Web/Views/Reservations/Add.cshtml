@@ -1,0 +1,15 @@
+﻿@using CoolVacationT.Common
+@using CoolVacationT.Web.ViewModels.Reservations.InputModels
+@model CreateReservationInputModel
+
+@{
+    this.ViewData["Title"] = "Add Reservation";
+}
+
+<form asp-controller="Reservations"  asp-action="Add" mtehod="post">
+    <div class="form-group">
+        <label for="rating">Number of people</label>
+        <input type="number" min="1" max="14" class="form-control" id="number" name="NoOfPeople">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
