@@ -22,7 +22,7 @@
             var period = new Period
             {
                 ArrivalDate = arrivalDate,
-                DepartDate = departureDate,                
+                DepartDate = departureDate,
             };
 
             await this.periodRepository.AddAsync(period);

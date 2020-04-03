@@ -33,9 +33,9 @@
             var reservation = new Reservation
             {
                 NoOfPeople = noOfPeople,
-                
-                //PeriodId = period.Id,
-              //Payment = payment,
+                PeriodId = period.Id,
+                 
+              //Payment = payment  ,
               //RelaxProgram = relaxProgram,
                 ApplicationUserId = id,
             };

@@ -4,14 +4,16 @@ using CoolVacationT.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CoolVacationT.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200403133340_CorStringToInt")]
+    partial class CorStringToInt
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -309,13 +311,23 @@ namespace CoolVacationT.Data.Migrations
                     b.Property<int>("NoOfPeople")
                         .HasColumnType("int");
 
-                    b.Property<int?>("PaymentId")
+                    b.Property<string>("PaymentId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("PaymnetId")
                         .HasColumnType("int");
 
-                    b.Property<int>("PeriodId")
+                    b.Property<string>("PeriodId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("PeriodId1")
                         .HasColumnType("int");
 
-                    b.Property<int?>("RelaxProgramId")
+                    b.Property<string>("RelaxProgramId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("RelaxProgramId1")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -324,11 +336,11 @@ namespace CoolVacationT.Data.Migrations
 
                     b.HasIndex("IsDeleted");
 
-                    b.HasIndex("PaymentId");
+                    b.HasIndex("PaymnetId");
 
-                    b.HasIndex("PeriodId");
+                    b.HasIndex("PeriodId1");
 
-                    b.HasIndex("RelaxProgramId");
+                    b.HasIndex("RelaxProgramId1");
 
                     b.ToTable("Reservations");
                 });
@@ -486,19 +498,17 @@ namespace CoolVacationT.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("CoolVacationT.Data.Models.Payment", "Payment")
+                    b.HasOne("CoolVacationT.Data.Models.Payment", "Paymnet")
                         .WithMany("Reservations")
-                        .HasForeignKey("PaymentId");
+                        .HasForeignKey("PaymnetId");
 
                     b.HasOne("CoolVacationT.Data.Models.Period", "Period")
                         .WithMany("Reservations")
-                        .HasForeignKey("PeriodId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .HasForeignKey("PeriodId1");
 
                     b.HasOne("CoolVacationT.Data.Models.RelaxProgram", "RelaxProgram")
                         .WithMany("Reservations")
-                        .HasForeignKey("RelaxProgramId");
+                        .HasForeignKey("RelaxProgramId1");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
