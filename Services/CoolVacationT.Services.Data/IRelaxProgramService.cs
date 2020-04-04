@@ -2,9 +2,9 @@
 {
     using System.Threading.Tasks;
 
-    public interface IPaymentService
+    public interface IRelaxProgramService
     {
-        Task<int> AddAsync(string amountPaid, string documentNumber);
+        Task<int> AddAsync(string ecoTrail, string party, string swimmingPool);
 
         //IEnumerable<FeedBackViewModel> GetFeedBacks(string id);
     }

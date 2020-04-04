@@ -1,0 +1,25 @@
+﻿@using CoolVacationT.Common
+@using CoolVacationT.Web.ViewModels.RelaxPrograms.InputModel
+@model CreateRelaxProgramInputModel
+
+@{
+    this.ViewData["Title"] = "Add RelaxProgram";
+}
+
+    <h1 class="display-3">If you want add RelaxProgram</h1>
+
+    <form asp-controller="RelaxPrograms" asp-action="Add" mtehod="post">
+        <div class="form-group">
+            <label for="rating">Do You want to take participation in EcoTrail</label>
+            <input type="text" class="form-control" id="ecoTrail" name="EcoTrail">
+        </div>
+        <div class="form-group">
+            <label for="rating">Do You want to take participation in Party</label>
+            <input type="text" class="form-control" id="party" name="Party">
+        </div>
+        <div class="form-group">
+            <label for="rating">Do You want to take participation in EcoTrail</label>
+            <input type="text" class="form-control" id="swimingPool" name="SwimmingPool">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>

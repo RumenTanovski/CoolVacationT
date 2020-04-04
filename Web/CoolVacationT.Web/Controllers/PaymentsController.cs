@@ -31,7 +31,7 @@
         {
             await this.paymentService.AddAsync(inputModel.AmountPaid, inputModel.DocumentNumber);
 
-            return this.Redirect("/Reservations/Add");
+            return this.Redirect("/RelaxPrograms/Add");
         }
     }
 }

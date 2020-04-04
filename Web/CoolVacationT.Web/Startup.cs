@@ -62,6 +62,7 @@
             services.AddTransient<IReservationService, ReservationService>();
             services.AddTransient<IPeriodService, PeriodService>();
             services.AddTransient<IPaymentService, PaymentService>();
+            services.AddTransient<IRelaxProgramService, RelaxProgramService>();
 
             services.AddTransient<IFeedBackService, FeedBackService>();
             services.AddTransient<IEmailSender, NullMessageSender>();
@@ -112,6 +113,7 @@
                         endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
                         endpoints.MapRazorPages();
 
+                        endpoints.MapControllerRoute("relaxProgram", "{controller=RelaxPrograms}/{action=Add}/{id?}");
                         endpoints.MapControllerRoute("payment", "{controller=Payments}/{action=Add}/{id?}");
                         endpoints.MapControllerRoute("reservation", "{controller=Reservations}/{action=Add}/{id?}");
                         endpoints.MapControllerRoute("period", "{controller=Periods}/{action=Add}/{id?}");

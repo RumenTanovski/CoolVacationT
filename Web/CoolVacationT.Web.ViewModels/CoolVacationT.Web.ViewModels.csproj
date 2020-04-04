@@ -26,6 +26,7 @@
   <ItemGroup>
     <Folder Include="Payments\ViewModel\" />
     <Folder Include="Period\ViewModel\" />
+    <Folder Include="RelaxPrograms\ViewModel\" />
   </ItemGroup>
 
 </Project>

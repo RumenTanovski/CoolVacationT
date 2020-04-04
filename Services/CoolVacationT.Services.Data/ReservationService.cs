@@ -12,15 +12,18 @@
 
     public class ReservationService : IReservationService
     {
+        private readonly IDeletableEntityRepository<RelaxProgram> relaxProgramRepository;
         private readonly IDeletableEntityRepository<Payment> paymentRepository;
         private readonly IDeletableEntityRepository<Period> periodRepository;
         private readonly IDeletableEntityRepository<Reservation> reservationRepository;
 
         public ReservationService(
+            IDeletableEntityRepository<RelaxProgram> relaxProgramRepository,
             IDeletableEntityRepository<Payment> paymentRepository,
             IDeletableEntityRepository<Period> periodRepository,
             IDeletableEntityRepository<Reservation> reservationRepository)
         {
+            this.relaxProgramRepository = relaxProgramRepository;
             this.paymentRepository = paymentRepository;
             this.periodRepository = periodRepository;
             this.reservationRepository = reservationRepository;
@@ -38,13 +41,17 @@
                 .ToList();
             Payment payment = payments.OrderByDescending(x => x.Id).FirstOrDefault();
 
+            IEnumerable<RelaxProgram> relaxPrograms = this.relaxProgramRepository
+                .All()
+                .ToList();
+            RelaxProgram relaxProgram = relaxPrograms.OrderByDescending(x => x.Id).FirstOrDefault();
+
             var reservation = new Reservation
             {
                 NoOfPeople = noOfPeople,
                 PeriodId = period.Id,
                 PaymentId = payment.Id,
-
-                //RelaxProgram = relaxProgram,
+                RelaxProgramId = relaxProgram.Id,
                 ApplicationUserId = id,
             };
 
