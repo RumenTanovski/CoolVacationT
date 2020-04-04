@@ -10,11 +10,8 @@
 
     public class CreatePeriodInputModel : IMapTo<Period>
     {
-        // neobhodimo li e Required?
-        [Required]
         public DateTime ArrivalDate { get; set; }
 
-        [Required]
         public DateTime DepartDate { get; set; }
     }
 }

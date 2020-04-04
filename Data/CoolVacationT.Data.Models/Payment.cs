@@ -15,13 +15,14 @@
         }
 
         [Required]
-        [Range(0, double.MaxValue)]
-        public decimal AmountPaid { get; set; }
+        //[Range(0, double.MaxValue)]
+        public string AmountPaid { get; set; }
 
         [Required]
-        public string PicPaid { get; set; }
+        [MaxLength(100)]
+        public string DocumentNumber { get; set; }
 
-        public decimal AmountOwing { get; set; }
+        public decimal? AmountOwing { get; set; }
 
         public virtual ICollection<Reservation> Reservations { get; set; }
     }

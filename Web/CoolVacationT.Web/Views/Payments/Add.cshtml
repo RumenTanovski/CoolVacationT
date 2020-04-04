@@ -1,0 +1,21 @@
+﻿@using CoolVacationT.Common
+@using CoolVacationT.Web.ViewModels.Payments.InputModel
+@model CreatePaymentInputModel
+
+@{
+    this.ViewData["Title"] = "Add Payment";
+}
+
+    <h1 class="display-3">Specify the amount and specify the document type and number</h1>
+
+<form asp-controller="Payments"  asp-action="Add" mtehod="post">
+    <div class="form-group">
+        <label for="rating">What is the amount(0.00)</label>
+        <input type="text" class="form-control" id="amountPaid" name="AmountPaid">
+    </div>
+    <div class="form-group">
+        <label for="comment">Document type, number and date</label>
+        <input type="text" class="form-control" id="documnetNumber" name="DocumentNumber">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

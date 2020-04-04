@@ -24,6 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Payments\ViewModel\" />
     <Folder Include="Period\ViewModel\" />
   </ItemGroup>
 
