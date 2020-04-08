@@ -10,8 +10,9 @@
 <div class="col-md-2">
     <form asp-controller="Reservations" asp-action="Add" mtehod="post">
         <div class="form-group">
-            <label for="rating">Number of people</label>
-            <input type="number" min="1" max="14" class="form-control" id="number" name="NoOfPeople">
+            <label asp-for="NoOfPeople"></label>
+            <input asp-for="NoOfPeople" type="number" min="1" max="14" class="form-control">
+            <span asp-validation-for="NoOfPeople" class="text-danger"></span>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>

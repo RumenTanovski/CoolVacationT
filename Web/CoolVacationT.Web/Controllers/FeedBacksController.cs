@@ -49,10 +49,19 @@
         {
             var user = await this.userManager.GetUserAsync(this.User);
 
-            var feeds = this.feedBackService.GetFeedBacks(user.Id);
+            var feeds = this.feedBackService.GetUserFeedBacks(user.Id);
             FeedBacksUserViewModel viewModel = new FeedBacksUserViewModel(feeds);
 
             return this.View(viewModel);
         }
+
+        public IActionResult GetAllFeedBacks()
+        {
+            var feeds = this.feedBackService.GetAllFeedBacks();
+            FeedBacksAllViewModel viewModel = new FeedBacksAllViewModel(feeds);
+
+            return this.View(viewModel);
+        }
+
     }
 }

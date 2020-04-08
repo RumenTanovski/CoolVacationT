@@ -40,10 +40,20 @@
         [HttpPost]
         public async Task<IActionResult> Add(CreateReservationInputModel inputModel)
         {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(inputModel);
+            }
+
             var user = await this.userManager.GetUserAsync(this.User);
             await this.reservationService.AddAsync(user.Id, inputModel.NoOfPeople);
 
-            return this.Redirect("/");
+            return this.Redirect("/Reservations/Success");
+        }
+
+        public IActionResult Success()
+        {
+            return this.View();
         }
     }
 }

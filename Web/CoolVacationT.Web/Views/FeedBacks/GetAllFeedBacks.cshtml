@@ -1,0 +1,23 @@
+﻿@using CoolVacationT.Common
+@using CoolVacationT.Web.ViewModels.FeedBacks.ViewModels
+@model FeedBacksAllViewModel
+@{
+    ViewData["Title"] = "GetAllFeedBacks";
+}
+
+<h1 class="display-3">All Feed Backs</h1>
+
+@foreach (var feedBack in Model.FeedBacks.OrderByDescending(x=> x.CreatedOn))
+{
+    <div class="card" style="width: 72rem;">
+        <div class="alert alert-info">
+            From -> @feedBack.CreatedOn
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Rating -> @feedBack.Rating</li>
+            <li class="list-group-item">Comment -> @feedBack.Comment</li>
+        </ul>
+    </div>
+    <p> </p>
+}
+

@@ -10,16 +10,10 @@
 
     public class CreateReservationInputModel : IMapTo<Reservation>
     {
-        // {
-        //     this.Periods = new HashSet<Period>();
-        //     this.Payments = new HashSet<Payment>();
-        //     this.RelaxPrograms = new HashSet<RelaxProgram>();
-        // }
-
         [Required]
         [Range(1, 14)]
+        [Display(Name = "Number of people")]
         public int NoOfPeople { get; set; }
 
-        //public bool Confirmed { get; set; }
     }
 }

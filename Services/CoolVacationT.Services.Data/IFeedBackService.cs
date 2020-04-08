@@ -12,6 +12,9 @@
     {
         Task<string> AddAsync(string id, int rating, string comment);
 
-        IEnumerable<FeedBackViewModel> GetFeedBacks(string id);
+        IEnumerable<FeedBackViewModel> GetUserFeedBacks(string id);
+
+        IEnumerable<FeedBackViewModel> GetAllFeedBacks();
+
     }
 }

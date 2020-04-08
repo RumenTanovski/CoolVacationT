@@ -36,7 +36,7 @@
             return feedBack.Id;
         }
 
-        public IEnumerable<FeedBackViewModel> GetFeedBacks(string id)
+        public IEnumerable<FeedBackViewModel> GetUserFeedBacks(string id)
         {
             IEnumerable<FeedBack> feedBacks = this.feedBackRepository.All()
                 .Where(f => f.ApplicationUserId == id)
@@ -51,6 +51,22 @@
             .ToList();
 
             return usersViewModel;
+        }
+
+        public IEnumerable<FeedBackViewModel> GetAllFeedBacks()
+        {
+            IEnumerable<FeedBack> feedBacks = this.feedBackRepository.All()
+                .ToList();
+
+            IEnumerable<FeedBackViewModel> allViewModel = feedBacks.Select(f => new FeedBackViewModel
+            {
+                CreatedOn = f.CreatedOn,
+                Rating = f.Rating,
+                Comment = f.Comment,
+            })
+            .ToList();
+
+            return allViewModel;
         }
     }
 }
