@@ -36,6 +36,11 @@
         [HttpPost]
         public async Task<IActionResult> Add(CreateFeedBackInputModel inputModel)
         {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(inputModel);
+            }
+
             var user = await this.userManager.GetUserAsync(this.User);
             await this.feedBackService.AddAsync(user.Id, inputModel.Rating, inputModel.Comment);
 
