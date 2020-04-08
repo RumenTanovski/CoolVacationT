@@ -7,7 +7,7 @@
 
 <h1 class="display-3">My Feed Backs</h1>
 
-@foreach (var feedBack in Model.FeedBacks)
+@foreach (var feedBack in Model.FeedBacks.OrderByDescending(x=> x.CreatedOn))
 {
     <div class="card" style="width: 72rem;">
         <div class="alert alert-info">
