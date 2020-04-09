@@ -14,9 +14,8 @@
             this.Reservations = new HashSet<Reservation>();
         }
 
-        [Required]
-        //[Range(0, double.MaxValue)]
-        public string AmountPaid { get; set; }
+        [Range(0, 5000.00)]
+        public decimal? AmountPaid { get; set; }
 
         [Required]
         [MaxLength(100)]

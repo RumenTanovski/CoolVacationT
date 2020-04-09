@@ -114,14 +114,18 @@
                         endpoints.MapRazorPages();
 
                         endpoints.MapControllerRoute("relaxProgram", "{controller=RelaxPrograms}/{action=Add}/{id?}");
+
                         endpoints.MapControllerRoute("payment", "{controller=Payments}/{action=Add}/{id?}");
+
                         endpoints.MapControllerRoute("reservation", "{controller=Reservations}/{action=Add}/{id?}");
                         endpoints.MapControllerRoute("reservation", "{controller=Reservations}/{action=Success}/{id?}");
 
                         endpoints.MapControllerRoute("period", "{controller=Periods}/{action=Add}/{id?}");
+
                         endpoints.MapControllerRoute("feedBack", "{controller=FeedbBacks}/{action=Add}/{id?}");
                         endpoints.MapControllerRoute("feedBack", "{controller=FeedbBacks}/{action=GetUserFeedBacks}/{id?}");
                         endpoints.MapControllerRoute("feedBack", "{controller=FeedbBacks}/{action=GetAllFeedBacks}/{id?}");
+
                         endpoints.MapControllerRoute("areaRoute", "{area:exists}/{controller=Home}/{action=Index}/{id?}");
                     });
         }

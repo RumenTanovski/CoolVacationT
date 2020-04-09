@@ -6,16 +6,28 @@
     this.ViewData["Title"] = "Add Payment";
 }
 
-    <h1 class="display-3">Specify the amount and specify the document type and number</h1>
+<h1 class="display-3">Specify the amount and specify the document type and number</h1>
 
-<form asp-controller="Payments"  asp-action="Add" mtehod="post">
-    <div class="form-group">
-        <label for="rating">What is the amount(0.00)</label>
-        <input type="text" class="form-control" id="amountPaid" name="AmountPaid">
+<form asp-controller="Payments" asp-action="Add" mtehod="post">
+
+    <div asp-validation-summary="All" class="alert-danger"></div>
+
+    <div class="col-md-3">
+        <label asp-for="AmountPaid">What is the amount(0.00)</label>
+        <input asp-for="AmountPaid" class="form-control" />
+        <span asp-validation-for="AmountPaid" class="text-danger"></span>
     </div>
-    <div class="form-group">
-        <label for="comment">Document type, number and date</label>
-        <input type="text" class="form-control" id="documnetNumber" name="DocumentNumber">
+
+    <div class="col-md-3">
+        <label asp-for="DocumentNumber">Document type, number and date</label>
+        <input asp-for="DocumentNumber" class="form-control" />
+        <span asp-validation-for="DocumentNumber" class="text-danger"></span>
     </div>
+
+    <hr />
+
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+@section Scripts{
+    <partial name="_ValidationsScriptsPartial" />
+}

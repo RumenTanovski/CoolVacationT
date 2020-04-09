@@ -14,7 +14,7 @@
             this.paymentRepository = paymentRepository;
         }
 
-        public async Task<int> AddAsync(string amountPaid, string documentNumber)
+        public async Task<int> AddAsync(decimal amountPaid, string documentNumber)
         {
             var payment = new Payment
             {
