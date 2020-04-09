@@ -2,6 +2,7 @@
 {
     using System.Reflection;
 
+    using CloudinaryDotNet;
     using CoolVacationT.Data;
     using CoolVacationT.Data.Common;
     using CoolVacationT.Data.Common.Repositories;
@@ -52,6 +53,15 @@
             services.AddSingleton(this.configuration);
 
             services.AddMvc().AddControllersAsServices();
+
+            Account account = new Account(
+                    this.configuration["Cloudinary:AppName"],
+                    this.configuration["Cloudinary:AppKey"],
+                    this.configuration["Cloudinary:AppSecret"]);
+
+            Cloudinary cloudinary = new Cloudinary(account);
+
+            services.AddSingleton(cloudinary);
 
             // Data repositories
             services.AddScoped(typeof(IDeletableEntityRepository<>), typeof(EfDeletableEntityRepository<>));

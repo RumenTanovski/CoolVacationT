@@ -4,6 +4,7 @@
 
     using CoolVacationT.Data.Models;
     using CoolVacationT.Services.Mapping;
+    using Microsoft.AspNetCore.Http;
 
     public class CreatePaymentInputModel : IMapTo<Payment>
     {
@@ -12,5 +13,7 @@
 
         [Required]
         public string DocumentNumber { get; set; }
+
+        public IFormFile PaymentDocument { get; set; }
     }
 }

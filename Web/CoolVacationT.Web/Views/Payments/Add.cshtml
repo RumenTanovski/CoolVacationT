@@ -8,7 +8,8 @@
 
 <h1 class="display-3">Specify the amount and specify the document type and number</h1>
 
-<form asp-controller="Payments" asp-action="Add" mtehod="post">
+<form asp-controller="Payments" asp-action="Add" mtehod="post"
+      enctype="multipart/form-data">
 
     <div asp-validation-summary="All" class="alert-danger"></div>
 
@@ -19,9 +20,16 @@
     </div>
 
     <div class="col-md-3">
-        <label asp-for="DocumentNumber">Document type, number and date</label>
+        <label asp-for="DocumentNumber">Document type, number and date.</label>
         <input asp-for="DocumentNumber" class="form-control" />
         <span asp-validation-for="DocumentNumber" class="text-danger"></span>
+    </div>
+
+    <hr />
+
+    <div>
+        <label asp-for="PaymentDocument">You can upload a photo of the document if you wish</label>
+        <input type="file" name="PaymentDocument">
     </div>
 
     <hr />

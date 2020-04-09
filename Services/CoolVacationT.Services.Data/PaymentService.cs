@@ -14,12 +14,13 @@
             this.paymentRepository = paymentRepository;
         }
 
-        public async Task<int> AddAsync(decimal amountPaid, string documentNumber)
+        public async Task<int> AddAsync(decimal amountPaid, string documentNumber, string stringFileCloud)
         {
             var payment = new Payment
             {
                 AmountPaid = amountPaid,
                 DocumentNumber = documentNumber,
+                StringFileCloud = stringFileCloud,
             };
 
             await this.paymentRepository.AddAsync(payment);

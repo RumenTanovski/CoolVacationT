@@ -4,7 +4,7 @@
 
     public interface IPaymentService
     {
-        Task<int> AddAsync(decimal amountPaid, string documentNumber);
+        Task<int> AddAsync(decimal amountPaid, string documentNumber, string stringFileCloud);
 
         //IEnumerable<FeedBackViewModel> GetFeedBacks(string id);
     }
