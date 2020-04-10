@@ -353,8 +353,8 @@ MigrationBackup/
 .ionide/
 
 # Custom ignores
+appsettings.json
 **/wwwroot/lib/
 appsettings.Production.json
-appsettings.json
 *.min.css
 *.min.js
