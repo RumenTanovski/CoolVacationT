@@ -10,8 +10,12 @@
 
     public class CreatePeriodInputModel : IMapTo<Period>
     {
+        [Required]
+        [DataType(DataType.Date)]
         public DateTime ArrivalDate { get; set; }
 
+        [Required]
+        [DataType(DataType.Date)]
         public DateTime DepartDate { get; set; }
     }
 }

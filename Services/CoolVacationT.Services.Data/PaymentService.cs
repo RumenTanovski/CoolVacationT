@@ -27,5 +27,18 @@
             await this.paymentRepository.SaveChangesAsync();
             return payment.Id;
         }
+
+        public async Task<int> AddAsync(decimal amountPaid, string documentNumber)
+        {
+            var payment = new Payment
+            {
+                AmountPaid = amountPaid,
+                DocumentNumber = documentNumber,
+            };
+
+            await this.paymentRepository.AddAsync(payment);
+            await this.paymentRepository.SaveChangesAsync();
+            return payment.Id;
+        }
     }
 }

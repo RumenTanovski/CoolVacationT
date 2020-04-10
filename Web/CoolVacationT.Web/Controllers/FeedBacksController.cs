@@ -34,7 +34,7 @@
         public async Task<IActionResult> Add(CreateFeedBackInputModel inputModel)
         {
             if (!this.ModelState.IsValid)
-            {               
+            {
                 return this.View(inputModel);
             }
 
@@ -62,6 +62,5 @@
 
             return this.View(viewModel);
         }
-
     }
 }

@@ -5,6 +5,7 @@
     using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
+
     using CloudinaryDotNet;
     using CloudinaryDotNet.Actions;
     using CoolVacationT.Services.Data;
@@ -42,23 +43,29 @@
                 return this.View(inputModel);
             }
 
-            var stringFileNameCloud = await CloudinaryExtencions.UploadAsync(this.cloudinary, inputModel.PaymentDocument);
-
-            await this.paymentService.AddAsync(inputModel.AmountPaid, inputModel.DocumentNumber, stringFileNameCloud);
+            if (inputModel.PaymentDocument != null)
+            {
+                var stringFileNameCloud = await CloudinaryExtencions.UploadAsync(this.cloudinary, inputModel.PaymentDocument);
+                await this.paymentService.AddAsync(inputModel.AmountPaid, inputModel.DocumentNumber, stringFileNameCloud);
+            }
+            else
+            {
+                await this.paymentService.AddAsync(inputModel.AmountPaid, inputModel.DocumentNumber);
+            }
 
             return this.Redirect("/RelaxPrograms/Add");
         }
 
-        public async Task<IActionResult> Upload(IFormFile file)
-        {
-            await CloudinaryExtencions.UploadAsync(this.cloudinary, file);
-
-           // var uploadParams = new ImageUploadParams()
-           // {
-           //     File = new FileDescription(@"C:\vre\userDocument.jpg")
-           // };
-           // var uploadResult = await cloudinary.UploadAsync(uploadParams);
-            return this.Redirect("/");
-        }
+       // public async Task<IActionResult> Upload(IFormFile file)
+       // {
+       //    await CloudinaryExtencions.UploadAsync(this.cloudinary, file);
+       //
+       //   // var uploadParams = new ImageUploadParams()
+       //   // {
+       //   //     File = new FileDescription(@"C:\vre\userDocument.jpg")
+       //   // };
+       //   // var uploadResult = await cloudinary.UploadAsync(uploadParams);
+       //    return this.Redirect("/");
+       // }
     }
 }

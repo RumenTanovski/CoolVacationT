@@ -6,9 +6,9 @@
     this.ViewData["Title"] = "Add Period";
 }
 
-    <h1 class="display-3">When will you visit us</h1>
+<h1 class="display-3">When will you visit us</h1>
 
-<form asp-controller="Periods"  asp-action="Add" mtehod="post">
+<form asp-controller="Periods" asp-action="Add" mtehod="post">
     <div class="form-group">
         <label for="rating">Date of arrival</label>
         <input type="date" class="form-control" id="arrivalDate" name="ArrivalDate">
@@ -19,3 +19,6 @@
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+@section Scripts{
+    <partial name="_ValidationsScriptsPartial" />
+}

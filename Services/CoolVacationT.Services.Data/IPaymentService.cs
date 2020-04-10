@@ -6,6 +6,8 @@
     {
         Task<int> AddAsync(decimal amountPaid, string documentNumber, string stringFileCloud);
 
+        Task<int> AddAsync(decimal amountPaid, string documentNumber);
+
         //IEnumerable<FeedBackViewModel> GetFeedBacks(string id);
     }
 }

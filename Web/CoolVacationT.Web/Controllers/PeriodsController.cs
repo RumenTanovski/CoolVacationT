@@ -1,5 +1,6 @@
 ﻿namespace CoolVacationT.Web.Controllers
 {
+    using System;
     using System.Threading.Tasks;
 
     using CoolVacationT.Services.Data;
@@ -26,10 +27,18 @@
         [HttpPost]
         public async Task<IActionResult> Add(CreatePeriodInputModel inputModel)
         {
+            DateTime dateNow = DateTime.UtcNow;
+            if ((!this.ModelState.IsValid)
+                || inputModel.ArrivalDate < dateNow
+                || inputModel.DepartDate < dateNow
+                || inputModel.ArrivalDate == inputModel.DepartDate)
+            {
+                return this.View(inputModel);
+            }
+
             await this.periodService.AddAsync(inputModel.ArrivalDate, inputModel.DepartDate);
 
             return this.Redirect("/Payments/Add");
         }
-
     }
 }

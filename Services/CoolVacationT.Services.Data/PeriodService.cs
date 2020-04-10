@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
 
@@ -28,6 +29,17 @@
             await this.periodRepository.AddAsync(period);
             await this.periodRepository.SaveChangesAsync();
             return period.Id;
+        }
+
+        public async Task<IList<Period>> TakeBusyDay()
+        {
+            IList<Period> listPeriod = new List<Period>();
+
+            listPeriod = this.periodRepository.All()
+                .OrderByDescending(d => d.ArrivalDate)
+                .ToList();
+
+            return listPeriod;
         }
     }
 }
