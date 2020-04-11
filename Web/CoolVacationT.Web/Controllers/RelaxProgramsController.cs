@@ -1,14 +1,12 @@
-﻿using CoolVacationT.Services.Data;
-using CoolVacationT.Web.ViewModels.RelaxPrograms.InputModel;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace CoolVacationT.Web.Controllers
+﻿namespace CoolVacationT.Web.Controllers
 {
+    using System.Threading.Tasks;
+
+    using CoolVacationT.Services.Data;
+    using CoolVacationT.Web.ViewModels.RelaxPrograms.InputModel;
+    using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Mvc;
+
     public class RelaxProgramsController : BaseController
     {
         private readonly IRelaxProgramService relaxProgramService;
@@ -28,6 +26,11 @@ namespace CoolVacationT.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> Add(CreateRelaxProgramInputModel inputModel)
         {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(inputModel);
+            }
+
             await this.relaxProgramService.AddAsync(inputModel.EcoTrail, inputModel.Party, inputModel.SwimmingPool);
 
             return this.Redirect("/Reservations/Add");

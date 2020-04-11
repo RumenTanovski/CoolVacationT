@@ -264,7 +264,8 @@ namespace CoolVacationT.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("EcoTrail")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -273,10 +274,12 @@ namespace CoolVacationT.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Party")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
                     b.Property<string>("SwimmingPool")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
                     b.HasKey("Id");
 

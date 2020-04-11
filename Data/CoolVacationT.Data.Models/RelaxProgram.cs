@@ -14,10 +14,13 @@
             this.Reservations = new HashSet<Reservation>();
         }
 
+        [MaxLength(50)]
         public string? EcoTrail { get; set; }
 
+        [MaxLength(50)]
         public string? Party { get; set; }
 
+        [MaxLength(50)]
         public string? SwimmingPool { get; set; }
 
         public virtual ICollection<Reservation> Reservations { get; set; }

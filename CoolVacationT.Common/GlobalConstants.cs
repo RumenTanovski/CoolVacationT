@@ -16,6 +16,8 @@
 
         public const string PicCoupleRoom = "http://res.cloudinary.com/du8vkjq9e/image/upload/v1586502927/dihelhu9xk6tvgtpjjnh.jpg";
 
+        public const string PicConfirmation = "http://res.cloudinary.com/du8vkjq9e/image/upload/v1586593440/nn1zf4kadrunqfi9iiod.jpg";
+
         public const string Describe = "Тел.: + 359 888 625 021, +359 887 449 714";
 
     }

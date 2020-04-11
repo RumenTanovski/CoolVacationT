@@ -12,6 +12,7 @@
         public decimal AmountPaid { get; set; }
 
         [Required]
+        [StringLength(100)]
         public string DocumentNumber { get; set; }
 
         public IFormFile PaymentDocument { get; set; }
