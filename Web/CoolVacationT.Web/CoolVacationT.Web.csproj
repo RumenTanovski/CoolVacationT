@@ -42,4 +42,8 @@
     <ProjectReference Include="..\CoolVacationT.Web.Infrastructure\CoolVacationT.Web.Infrastructure.csproj" />
     <ProjectReference Include="..\CoolVacationT.Web.ViewModels\CoolVacationT.Web.ViewModels.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Administration\Views\Administration\" />
+  </ItemGroup>
 </Project>

@@ -121,6 +121,7 @@
                 endpoints =>
                     {
                         endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
+                        endpoints.MapControllerRoute("area:exists", "{controller=FeedBacks}/{action=Index}/{id?}");
                         endpoints.MapRazorPages();
 
                         endpoints.MapControllerRoute("relaxProgram", "{controller=RelaxPrograms}/{action=Add}/{id?}");

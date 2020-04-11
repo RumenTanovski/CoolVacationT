@@ -1,0 +1,14 @@
+﻿@using CoolVacationT.Common
+
+@{
+    this.ViewData["Title"] = "Admin Page";
+}
+
+
+    <div class="text-center">
+        <h1 class="display-4">Welcome @GlobalConstants.AdministratorRoleName!</h1>
+        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" asp-controller="Home" asp-action="Introduction">Tell Me More</a>
+
+        <img src=@(GlobalConstants.PicAdmin) class="img-fluid" />
+        
+    </div>

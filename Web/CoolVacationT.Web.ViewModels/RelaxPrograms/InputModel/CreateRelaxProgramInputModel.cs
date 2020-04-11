@@ -10,14 +10,13 @@
 
     public class CreateRelaxProgramInputModel : IMapTo<RelaxProgram>
     {
-        //50
-        [StringLength(10)]
+        [StringLength(50)]
         public string EcoTrail { get; set; }
 
-        [StringLength(10)]
+        [StringLength(50)]
         public string Party { get; set; }
 
-        [StringLength(10)]
+        [StringLength(50)]
         public string SwimmingPool { get; set; }
     }
 }
