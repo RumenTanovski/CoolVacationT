@@ -21,16 +21,16 @@
 
         private static async Task SeedUserAsync(UserManager<ApplicationUser> userManager)
         {
-            var user = await userManager.FindByNameAsync("gosho@abv.bg");
+            var user = await userManager.FindByNameAsync(GlobalConstants.AdminName);
             if (user == null)
             {
                 var result = await userManager.CreateAsync(
                     new ApplicationUser
                     {
-                        UserName = "gosho@abv.bg",
-                        Email = "gosho@abv.bg",
+                        UserName = GlobalConstants.AdminName,
+                        Email = GlobalConstants.AdminEmail,
                         EmailConfirmed = true,
-                    }, "Qwerty1!");
+                    }, GlobalConstants.AdminPassword);
                 if (!result.Succeeded)
                 {
                     throw new Exception(string.Join(Environment.NewLine, result.Errors.Select(e => e.Description)));

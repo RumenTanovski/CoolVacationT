@@ -25,7 +25,7 @@
             RoleManager<ApplicationRole> roleManager,
             UserManager<ApplicationUser> userManager)
         {
-            var user = await userManager.FindByNameAsync("gosho@abv.bg");
+            var user = await userManager.FindByNameAsync(GlobalConstants.AdminName);
             var role = await roleManager.FindByNameAsync(GlobalConstants.AdministratorRoleName);
 
             var exists = dbContext.UserRoles.Any(x => x.UserId == user.Id && x.RoleId == role.Id);
@@ -41,21 +41,17 @@
                 UserId = user.Id,
             });
 
-            //if (role == null)
-            //{
+            // if (role == null)
+            // {
             //    var result = await roleManager.CreateAsync(new ApplicationRole(roleName));
             //    if (!result.Succeeded)
             //    {
             //        throw new Exception(string.Join(Environment.NewLine, result.Errors.Select(e => e.Description)));
             //    }
-            //}
+            // }
         }
 
-        //var user = await this.userManager.FindByNameAsync("Gosho");
-        //var role = await this.roleManager.FindByNameAsync("Admin");
-
-
-
-
+        // var user = await this.userManager.FindByNameAsync("Gosho");
+        // var role = await this.roleManager.FindByNameAsync("Admin");
     }
 }

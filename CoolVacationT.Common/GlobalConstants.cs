@@ -6,6 +6,12 @@
 
         public const string AdministratorRoleName = "Administrator";
 
+        public const string AdminName = "Gosho";
+
+        public const string AdminEmail = "gosho@abv.bg";
+
+        public const string AdminPassword = "Qwerty1!";
+
         public const string PicHomeOut = "http://res.cloudinary.com/du8vkjq9e/image/upload/v1586502384/ath0ggbmtuamgujtr42t.jpg";
 
         public const string PicHol = "http://res.cloudinary.com/du8vkjq9e/image/upload/v1586502667/xgoj5g7isi1wyitjlbxg.jpg";
@@ -21,6 +27,5 @@
         public const string PicAdmin = "https://images-na.ssl-images-amazon.com/images/I/514iEqo58iL._SX398_BO1,204,203,200_.jpg";
 
         public const string Describe = "Тел.: + 359 888 625 021, +359 887 449 714";
-
     }
 }
