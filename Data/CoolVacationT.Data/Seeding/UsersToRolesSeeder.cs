@@ -25,7 +25,7 @@
             RoleManager<ApplicationRole> roleManager,
             UserManager<ApplicationUser> userManager)
         {
-            var user = await userManager.FindByNameAsync("Goshooo");
+            var user = await userManager.FindByNameAsync("gosho@abv.bg");
             var role = await roleManager.FindByNameAsync(GlobalConstants.AdministratorRoleName);
 
             var exists = dbContext.UserRoles.Any(x => x.UserId == user.Id && x.RoleId == role.Id);
