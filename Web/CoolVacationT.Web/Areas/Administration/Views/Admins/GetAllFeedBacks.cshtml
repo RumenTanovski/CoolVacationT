@@ -5,22 +5,25 @@
     ViewData["Title"] = "GetAllFeedBacks";
 }
 
-<h1 class="display-3">All Feed Backs For Admin</h1>
+<h1 class="display-3">If there are vulgar take Id</h1>
+<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" asp-area="Administration" asp-controller="Admins" asp-action="Index" title="Admin">Go to DELETE feedback</a>
 
-@foreach (var feedBack in Model.FeedBacks.OrderByDescending(x=> x.CreatedOn))
+@foreach (var feedBack in Model.FeedBacks.OrderByDescending(x => x.CreatedOn))
 {
-<div class="card" style="width: 72rem;">
-    <div class="alert alert-danger">
-        Id -> @feedBack.Id
+    <div class="card" style="width: 72rem;">
+        <div class="alert alert-danger">
+            Id -> @feedBack.Id
+        </div>
+        <div class="alert alert-info">
+            From -> @feedBack.CreatedOn
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Rating -> @feedBack.Rating</li>
+            <li class="list-group-item">Comment -> @feedBack.Comment</li>
+        </ul>
     </div>
-    <div class="alert alert-info">
-        From -> @feedBack.CreatedOn
-    </div>
-    <ul class="list-group list-group-flush">
-        <li class="list-group-item">Rating -> @feedBack.Rating</li>
-        <li class="list-group-item">Comment -> @feedBack.Comment</li>
-    </ul>
-</div>
     <p> </p>
 }
+<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" asp-area="Administration" asp-controller="Admins" asp-action="Index" title="Admin">Go to DELETE feedback</a>
+
 
