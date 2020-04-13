@@ -9,6 +9,7 @@
     using CoolVacationT.Data.Models;
     using CoolVacationT.Services.Data;
     using CoolVacationT.Web.ViewModels.Administartion.ViewModels;
+    using CoolVacationT.Web.ViewModels.Administration.InputModels;
     using CoolVacationT.Web.ViewModels.Administration.ViewModels;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
@@ -42,6 +43,32 @@
             FeedBackAdminAllViewModel viewModel = new FeedBackAdminAllViewModel(feeds);
 
             return this.View(viewModel);
+        }
+
+        [Route("[action]")]
+        public IActionResult DeleteFeedBack()
+        {
+            return this.View();
+        }
+
+        [HttpPost]
+        [Route("[action]")]
+        public async Task<IActionResult> DeleteFeedBack(CreateIdInputModel inputModel)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(inputModel);
+            }
+
+            await this.feedBackService.DeleteAsync(inputModel.Id);
+
+            return this.Redirect("/Administration/Success");
+        }
+
+        [Route("[action]")]
+        public IActionResult Success()
+        {
+            return this.View();
         }
     }
 }

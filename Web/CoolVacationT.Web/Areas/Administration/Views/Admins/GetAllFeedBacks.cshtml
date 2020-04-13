@@ -6,8 +6,8 @@
 }
 
 <h1 class="display-3">If there are vulgar take Id</h1>
-<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" asp-area="Administration" asp-controller="Admins" asp-action="Index" title="Admin">Go to DELETE feedback</a>
-
+<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" asp-area="Administration" asp-controller="Admins" asp-action="DeleteFeedBack" title="Admin">Go to DELETE feedback</a>
+<p> </p>
 @foreach (var feedBack in Model.FeedBacks.OrderByDescending(x => x.CreatedOn))
 {
     <div class="card" style="width: 72rem;">
@@ -24,6 +24,6 @@
     </div>
     <p> </p>
 }
-<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" asp-area="Administration" asp-controller="Admins" asp-action="Index" title="Admin">Go to DELETE feedback</a>
+<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" asp-area="Administration" asp-controller="Admins" asp-action="DeleteFeedBack" title="Admin">Go to DELETE feedback</a>
 
 

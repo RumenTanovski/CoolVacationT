@@ -1,0 +1,28 @@
+﻿@using CoolVacationT.Common
+@using CoolVacationT.Web.ViewModels.Administration.InputModels
+@model CreateIdInputModel
+
+
+@{
+    this.ViewData["Title"] = "Delete FeedBack";
+}
+
+
+<h1 class="display-3">Now You Will Delete FeedBack</h1>
+
+<form asp-area="Administration" asp-controller="Admins" asp-action="DeleteFeedBack" mtehod="post" class="form">
+
+    <div class="col-md-12">
+        <label asp-for="Id"></label>
+        <input asp-for="Id" class="form-control" />
+        <span asp-validation-for="Id" class="text-danger"></span>
+    </div>
+
+    <hr />
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>
+@section Scripts{
+    <partial name="_ValidationsScriptsPartial" />
+}

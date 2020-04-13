@@ -9,6 +9,6 @@
     {
         IEnumerable<FeedBackAdminViewModel> GetAllFeedBacks();
 
-        Task<string> DeleteAsync(string id);
+        Task DeleteAsync(string id);
     }
 }

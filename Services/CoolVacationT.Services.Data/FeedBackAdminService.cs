@@ -12,11 +12,14 @@
     public class FeedBackAdminService : IFeedBackAdminService
     {
         private readonly IDeletableEntityRepository<FeedBack> feedBackRepository;
+        private readonly IDeletableEntityRepository<ApplicationUser> userRepository;
 
         public FeedBackAdminService(
-            IDeletableEntityRepository<FeedBack> feedBackRepository)
+            IDeletableEntityRepository<FeedBack> feedBackRepository,
+            IDeletableEntityRepository<ApplicationUser> userRepository)
         {
             this.feedBackRepository = feedBackRepository;
+            this.userRepository = userRepository;
         }
 
         public IEnumerable<FeedBackAdminViewModel> GetAllFeedBacks()
@@ -36,9 +39,13 @@
             return allViewModel;
         }
 
-        public Task<string> DeleteAsync(string id)
+        public async Task DeleteAsync(string id)
         {
-            throw new NotImplementedException();
+            FeedBack feedBack = this.feedBackRepository.All().FirstOrDefault(f => f.Id == id);
+
+            this.feedBackRepository.Delete(feedBack);
+
+            await this.feedBackRepository.SaveChangesAsync();
         }
     }
 }
