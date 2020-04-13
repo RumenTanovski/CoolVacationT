@@ -83,6 +83,7 @@
             services.AddTransient<IPaymentService, PaymentService>();
             services.AddTransient<IRelaxProgramService, RelaxProgramService>();
 
+            services.AddTransient<IFeedBackAdminService, FeedBackAdminService>();
             services.AddTransient<IFeedBackService, FeedBackService>();
             services.AddTransient<IEmailSender, NullMessageSender>();
             services.AddTransient<ISettingsService, SettingsService>();
@@ -131,21 +132,23 @@
                 endpoints =>
                     {
                         endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
-                        endpoints.MapControllerRoute("area:exists", "{controller=FeedBacks}/{action=Index}/{id?}");
+                        endpoints.MapControllerRoute("area:exists", "{controller=Admins}/{action=Index}/{id?}");
+                        endpoints.MapControllerRoute("area:exists", "{controller=Admins}/{action=GetAllFeedBacks}/{id?}");
+
                         endpoints.MapRazorPages();
 
                         endpoints.MapControllerRoute("relaxProgram", "{controller=RelaxPrograms}/{action=Add}/{id?}");
 
-                        endpoints.MapControllerRoute("payment", "{controller=Payments}/{action=Add}/{id?}");
+                        endpoints.MapControllerRoute("paymentAdd", "{controller=Payments}/{action=Add}/{id?}");
 
-                        endpoints.MapControllerRoute("reservation", "{controller=Reservations}/{action=Add}/{id?}");
-                        endpoints.MapControllerRoute("reservation", "{controller=Reservations}/{action=Success}/{id?}");
+                        endpoints.MapControllerRoute("reservationAdd", "{controller=Reservations}/{action=Add}/{id?}");
+                        endpoints.MapControllerRoute("reservationSuccess", "{controller=Reservations}/{action=Success}/{id?}");
 
-                        endpoints.MapControllerRoute("period", "{controller=Periods}/{action=Add}/{id?}");
+                        endpoints.MapControllerRoute("periodAdd", "{controller=Periods}/{action=Add}/{id?}");
 
-                        endpoints.MapControllerRoute("feedBack", "{controller=FeedbBacks}/{action=Add}/{id?}");
-                        endpoints.MapControllerRoute("feedBack", "{controller=FeedbBacks}/{action=GetUserFeedBacks}/{id?}");
-                        endpoints.MapControllerRoute("feedBack", "{controller=FeedbBacks}/{action=GetAllFeedBacks}/{id?}");
+                        endpoints.MapControllerRoute("feedBackAdd", "{controller=FeedbBacks}/{action=Add}/{id?}");
+                        endpoints.MapControllerRoute("feedBackUser", "{controller=FeedbBacks}/{action=GetUserFeedBacks}/{id?}");
+                        endpoints.MapControllerRoute("feedBackAll", "{controller=FeedbBacks}/{action=GetAllFeedBacks}/{id?}");
 
                         endpoints.MapControllerRoute("areaRoute", "{area:exists}/{controller=Home}/{action=Index}/{id?}");
                     });
