@@ -83,7 +83,7 @@
             services.AddTransient<IPaymentService, PaymentService>();
             services.AddTransient<IRelaxProgramService, RelaxProgramService>();
 
-            services.AddTransient<IFeedBackAdminService, FeedBackAdminService>();
+            services.AddTransient<IAdminService, AdminService>();
             services.AddTransient<IFeedBackService, FeedBackService>();
             services.AddTransient<IEmailSender, NullMessageSender>();
             services.AddTransient<ISettingsService, SettingsService>();
@@ -136,7 +136,7 @@
                         endpoints.MapControllerRoute("area:exists", "{controller=Admins}/{action=GetAllFeedBacks}/{id?}");
                         endpoints.MapControllerRoute("area:exists", "{controller=Admins}/{action=DeleteFeedBack}/{id?}");
                         endpoints.MapControllerRoute("area:exists", "{controller=Admins}/{action=Success}/{id?}");
-
+                        endpoints.MapControllerRoute("area:exists", "{controller=Admins}/{action=GetAllPayments}/{id?}");
 
                         endpoints.MapRazorPages();
 
