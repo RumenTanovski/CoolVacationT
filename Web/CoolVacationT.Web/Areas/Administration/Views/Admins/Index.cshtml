@@ -5,11 +5,10 @@
 }
 
 
-    <div class="text-center">
-        <h1 class="display-4">Welcome @GlobalConstants.AdministratorRoleName!</h1>
+<div class="text-center">
+    <h1 class="display-4">Welcome @GlobalConstants.AdministratorRoleName!</h1>    
         <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" asp-controller="Admins" asp-action="GetAllFeedBacks">Edit FeedBacks</a>
-        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" asp-controller="Admins" asp-action="GetAllPayments">Show Payments</a>
+        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" asp-controller="Admins" asp-action="GetAllPayments">Show Payments</a>  
+    <img src=@(GlobalConstants.PicAdmin) class="img-fluid" />
 
-        <img src=@(GlobalConstants.PicAdmin) class="img-fluid" />
-
-    </div>
+</div>
