@@ -20,14 +20,14 @@
     [Authorize(Roles= GlobalConstants.AdministratorRoleName)]
     public class AdminsController : Controller
     {
-        private readonly IAdminService adminService;
+        private readonly IFeedBackAdminService feedBackService;
         private readonly UserManager<ApplicationUser> userManager;
 
         public AdminsController(
-            IAdminService feedBackService,
+            IFeedBackAdminService feedBackService,
             UserManager<ApplicationUser> userManager)
         {
-            this.adminService = feedBackService;
+            this.feedBackService = feedBackService;
             this.userManager = userManager;
         }
 
@@ -39,7 +39,7 @@
         [Route("[action]")]
         public IActionResult GetAllFeedBacks()
         {
-            var feeds = this.adminService.GetAllFeedBacks();
+            var feeds = this.feedBackService.GetAllFeedBacks();
             FeedBackAdminAllViewModel viewModel = new FeedBackAdminAllViewModel(feeds);
 
             return this.View(viewModel);
@@ -60,7 +60,7 @@
                 return this.View(inputModel);
             }
 
-            await this.adminService.DeleteAsync(inputModel.Id);
+            await this.feedBackService.DeleteAsync(inputModel.Id);
 
             return this.Redirect("/Administration/Success");
         }
@@ -69,16 +69,6 @@
         public IActionResult Success()
         {
             return this.View();
-        }
-
-        [Route("[action]")]
-        public IActionResult GetAllPayments()
-        {
-            var payments = this.adminService.GetAllPayments();
-
-            PaymentAdminAllViewModel viewModel = new PaymentAdminAllViewModel(payments);
-
-            return this.View(viewModel);
         }
     }
 }
