@@ -9,15 +9,18 @@
     using CoolVacationT.Data.Models;
     using CoolVacationT.Web.ViewModels.Administartion.ViewModels;
 
-    public class FeedBackAdminService : IFeedBackAdminService
+    public class AdminService : IAdminService
     {
+        private readonly IDeletableEntityRepository<Payment> paymentRepository;
         private readonly IDeletableEntityRepository<FeedBack> feedBackRepository;
         private readonly IDeletableEntityRepository<ApplicationUser> userRepository;
 
-        public FeedBackAdminService(
+        public AdminService(
+            IDeletableEntityRepository<Payment> paymentRepository,
             IDeletableEntityRepository<FeedBack> feedBackRepository,
             IDeletableEntityRepository<ApplicationUser> userRepository)
         {
+            this.paymentRepository = paymentRepository;
             this.feedBackRepository = feedBackRepository;
             this.userRepository = userRepository;
         }
@@ -46,6 +49,24 @@
             this.feedBackRepository.Delete(feedBack);
 
             await this.feedBackRepository.SaveChangesAsync();
+        }
+
+        public IEnumerable<PaymentAdminViewModel> GetAllPayments()
+        {
+            IEnumerable<Payment> payments = this.paymentRepository.All()
+                .ToList();
+
+            IEnumerable<PaymentAdminViewModel> allViewModel = payments.Select(p => new PaymentAdminViewModel
+            {
+                Id = p.Id,
+                AmountPaid = p.AmountPaid,
+                DocumentNumber = p.DocumentNumber,
+                StringFileCloud = p.StringFileCloud,
+                CreatedOn = p.CreatedOn,
+            })
+            .ToList();
+
+            return allViewModel;
         }
     }
 }

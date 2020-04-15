@@ -5,10 +5,12 @@
 
     using CoolVacationT.Web.ViewModels.Administartion.ViewModels;
 
-    public interface IFeedBackAdminService
+    public interface IAdminService
     {
         IEnumerable<FeedBackAdminViewModel> GetAllFeedBacks();
 
         Task DeleteAsync(string id);
+
+        IEnumerable<PaymentAdminViewModel> GetAllPayments();
     }
 }
