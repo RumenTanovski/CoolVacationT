@@ -146,6 +146,7 @@
 
                         endpoints.MapControllerRoute("reservationAdd", "{controller=Reservations}/{action=Add}/{id?}");
                         endpoints.MapControllerRoute("reservationSuccess", "{controller=Reservations}/{action=Success}/{id?}");
+                        endpoints.MapControllerRoute("reservationsUser", "{controller=Reservations}/{action=GetUserReservations}/{id?}");
 
                         endpoints.MapControllerRoute("periodAdd", "{controller=Periods}/{action=Add}/{id?}");
 

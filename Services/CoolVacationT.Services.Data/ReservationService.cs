@@ -60,9 +60,28 @@
             return reservation.Id;
         }
 
-        //public IEnumerable<ReservationViewModel> GetFeedBacks(string id)
-        //{
-        //    throw new NotImplementedException();
-        //}
+        public IEnumerable<ReservationViewModel> GetUserReservations(string id)
+        {
+            IEnumerable<Reservation> reservations = this.reservationRepository.All()
+                    .Where(r => r.ApplicationUserId == id)
+                    .ToList();
+
+            IEnumerable<ReservationViewModel> allViewModel = reservations.Select(f => new ReservationViewModel
+            {
+                Confirmed = f.Confirmed,
+                NoOfPeople = f.NoOfPeople,
+                //ArrivalDate = f.Period.ArrivalDate,
+                //DepartDate = f.Period.DepartDate,
+                //AmountPaid = f.Payment.AmountPaid,
+                //DocumentNumber = f.Payment.DocumentNumber,
+                //StringFileCloud = f.Payment.StringFileCloud,
+                //EcoTrail = f.RelaxProgram.EcoTrail,
+                //Party = f.RelaxProgram.Party,
+                //SwimmingPool = f.RelaxProgram.SwimmingPool,
+            })
+            .ToList();
+
+            return allViewModel;
+        }
     }
 }

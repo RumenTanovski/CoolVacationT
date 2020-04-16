@@ -9,8 +9,8 @@
 
     public interface IReservationService
     {
-        Task<int> AddAsync(string id, int noOfPeople);//, Payment payment, RelaxProgram relaxProgram);
+        Task<int> AddAsync(string id, int noOfPeople);
 
-        //IEnumerable<ReservationViewModel> GetFeedBacks(string id);
+        IEnumerable<Web.ViewModels.Reservations.ViewModel.ReservationViewModel> GetUserReservations(string id);
     }
 }

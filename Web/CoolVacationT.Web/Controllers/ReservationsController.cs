@@ -8,6 +8,7 @@
     using CoolVacationT.Data.Models;
     using CoolVacationT.Services.Data;
     using CoolVacationT.Web.ViewModels.Reservations.InputModels;
+    using CoolVacationT.Web.ViewModels.Reservations.ViewModel;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
@@ -54,6 +55,18 @@
         public IActionResult Success()
         {
             return this.View();
+        }
+
+        [Authorize]
+        public async Task<IActionResult> GetUserReservations()
+        {
+            var user = await this.userManager.GetUserAsync(this.User);
+
+            var reservations = this.reservationService.GetUserReservations(user.Id);
+
+            ReservationsUserViewModel viewModel = new ReservationsUserViewModel(reservations);
+
+            return this.View(viewModel);
         }
     }
 }

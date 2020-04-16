@@ -1,0 +1,32 @@
+﻿@using CoolVacationT.Common
+@using CoolVacationT.Web.ViewModels.Reservations.ViewModel
+@model ReservationsUserViewModel
+
+@{
+    this.ViewData["Title"] = "Your Reservations";
+}
+
+<h1 class="display-3">@this.ViewData["Title"]</h1>
+
+@foreach (var reservation in Model.Reservations.OrderByDescending(x => x.CreatedOn))
+{
+    <div class="card" style="width: 72rem;">
+        <div class="alert alert-info">
+            From -> @reservation.CreatedOn
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Confirmed -> @reservation.Confirmed </li>
+            <li class="list-group-item">Number of people -> @reservation.NoOfPeople </li>
+            <li class="list-group-item">Arrival Date -> @reservation.ArrivalDate </li>
+            <li class="list-group-item">Depart Date -> @reservation.DepartDate </li>
+            <li class="list-group-item">Amaunt Paid -> @reservation.AmountPaid </li>
+            <li class="list-group-item">Document, number  -> @reservation.DocumentNumber </li>
+            <li class="list-group-item">Document picture -> <img src="@reservation.StringFileCloud" class="img-fluid" /></li>            
+            <li class="list-group-item">Eco Trial -> @reservation.EcoTrail </li>
+            <li class="list-group-item">Party -> @reservation.Party </li>
+            <li class="list-group-item">Swimingpool -> @reservation.SwimmingPool </li>
+        </ul>
+    </div>
+    <p> </p>
+}
+
