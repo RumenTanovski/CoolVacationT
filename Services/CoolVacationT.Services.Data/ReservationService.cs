@@ -68,16 +68,17 @@
 
             IEnumerable<ReservationViewModel> allViewModel = reservations.Select(f => new ReservationViewModel
             {
+                CreatedOn = f.CreatedOn,
                 Confirmed = f.Confirmed,
                 NoOfPeople = f.NoOfPeople,
-                //ArrivalDate = f.Period.ArrivalDate,
-                //DepartDate = f.Period.DepartDate,
-                //AmountPaid = f.Payment.AmountPaid,
-                //DocumentNumber = f.Payment.DocumentNumber,
-                //StringFileCloud = f.Payment.StringFileCloud,
-                //EcoTrail = f.RelaxProgram.EcoTrail,
-                //Party = f.RelaxProgram.Party,
-                //SwimmingPool = f.RelaxProgram.SwimmingPool,
+                ArrivalDate = this.periodRepository.All().FirstOrDefault(p => p.Id == f.PeriodId).ArrivalDate,
+                DepartDate = f.Period.DepartDate,
+                AmountPaid = this.paymentRepository.All().FirstOrDefault(p => p.Id == f.PaymentId).AmountPaid,
+                DocumentNumber = f.Payment.DocumentNumber,
+                StringFileCloud = f.Payment.StringFileCloud,
+                EcoTrail = this.relaxProgramRepository.All().FirstOrDefault(r => r.Id == f.RelaxProgramId).EcoTrail,
+                Party = f.RelaxProgram.Party,
+                SwimmingPool = f.RelaxProgram.SwimmingPool,
             })
             .ToList();
 
