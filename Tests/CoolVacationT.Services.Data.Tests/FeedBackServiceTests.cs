@@ -8,7 +8,6 @@
     using CoolVacationT.Data.Common.Repositories;
     using CoolVacationT.Data.Models;
     using CoolVacationT.Data.Repositories;
-    using CoolVacationT.Web.ViewModels.FeedBacks.InputModels;
     using Microsoft.EntityFrameworkCore;
     using Moq;
     using Xunit;
