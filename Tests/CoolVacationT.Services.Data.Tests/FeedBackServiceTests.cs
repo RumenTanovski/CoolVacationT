@@ -8,6 +8,7 @@
     using CoolVacationT.Data.Common.Repositories;
     using CoolVacationT.Data.Models;
     using CoolVacationT.Data.Repositories;
+    using CoolVacationT.Web.ViewModels.FeedBacks.InputModels;
     using Microsoft.EntityFrameworkCore;
     using Moq;
     using Xunit;
@@ -97,6 +98,8 @@
             var list = service.GetAllFeedBacks().ToList();
 
             Assert.Single(list);
+            Assert.Equal(10, list[0].Rating);
+            Assert.Equal("Beshe gotino", list[0].Comment);
         }
     }
 }
