@@ -9,25 +9,26 @@
     using Microsoft.EntityFrameworkCore;
     using Xunit;
 
-    public class PeriodServiceTests
+    public class PaymentServiceTests
     {
         [Fact]
-        public void AddPeriodCorrectly()
+        public void AddPaymentThreeArgumentCorrectly()
         {
             var dbContext = new DbContextOptionsBuilder<ApplicationDbContext>()
                 .UseInMemoryDatabase(Guid.NewGuid().ToString());
-            var repository = new EfDeletableEntityRepository<Period>(new ApplicationDbContext(dbContext.Options));
+            var repository = new EfDeletableEntityRepository<Payment>(new ApplicationDbContext(dbContext.Options));
 
             repository.SaveChangesAsync().GetAwaiter().GetResult();
 
-            var service = new PeriodService(repository);
+            var service = new PaymentService(repository);
 
-            _ = service.AddAsync(new DateTime(2020, 5, 1), new DateTime(2020, 5, 5));
+            _ = service.AddAsync(1000, "Plategno 125/15.04.2020", "http://res.cloudinary.com/...");
             var list = repository.All().ToList();
 
             Assert.Single(list);
-            Assert.Equal(new DateTime(2020, 5, 1), list[0].ArrivalDate);
-            Assert.Equal(new DateTime(2020, 5, 5), list[0].DepartDate);
+            Assert.Equal(1000, list[0].AmountPaid);
+            Assert.Equal("Plategno 125/15.04.2020", list[0].DocumentNumber);
+            Assert.Equal("http://res.cloudinary.com/...", list[0].StringFileCloud);
         }
     }
 }
