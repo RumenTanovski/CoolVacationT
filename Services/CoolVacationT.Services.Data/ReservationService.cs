@@ -29,7 +29,7 @@
             this.reservationRepository = reservationRepository;
         }
 
-        public async Task<int> AddAsync(string id, int noOfPeople)//, Payment payment, RelaxProgram relaxProgram)
+        public async Task<int> AddAsync(string id, int noOfPeople)
         {
             IEnumerable<Period> periods = this.periodRepository
                 .All()
