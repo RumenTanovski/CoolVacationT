@@ -5,7 +5,5 @@
     public interface IRelaxProgramService
     {
         Task<int> AddAsync(string ecoTrail, string party, string swimmingPool);
-
-        //IEnumerable<FeedBackViewModel> GetFeedBacks(string id);
     }
 }

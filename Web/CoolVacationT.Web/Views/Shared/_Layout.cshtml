@@ -47,8 +47,6 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Introduction">Introduction</a>
                         </li>
 
-
-
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Reservations
@@ -72,9 +70,7 @@
                                 <a class="dropdown-item" asp-controller="FeedBacks" asp-action="GetAllFeedBacks">All FeedBacks</a>
                             </div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Settings" asp-action="Index">Settings</a>
-                        </li>
+                       
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
@@ -83,7 +79,6 @@
             </div>
         </nav>
     </header>
-
 
     <div class="container">
         <partial name="_CookieConsentPartial" />
@@ -126,7 +121,9 @@
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
 
-
-
+    <!-- For dropdown buton-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
 </body>
 </html>

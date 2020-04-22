@@ -24,7 +24,7 @@
 
         public const string PicConfirmation = "http://res.cloudinary.com/du8vkjq9e/image/upload/v1586593440/nn1zf4kadrunqfi9iiod.jpg";
 
-        public const string PicAdmin = "https://images-na.ssl-images-amazon.com/images/I/514iEqo58iL._SX398_BO1,204,203,200_.jpg";
+        public const string PicAdmin = "http://res.cloudinary.com/du8vkjq9e/image/upload/v1587553058/ofryjmhqx53o0mlddwwj.jpg";
 
         public const string PicDeleted = "http://res.cloudinary.com/du8vkjq9e/image/upload/v1586789945/roapgqex0ggvmvnpxizw.jpg";
 
