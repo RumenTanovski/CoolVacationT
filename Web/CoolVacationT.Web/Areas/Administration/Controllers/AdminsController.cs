@@ -76,5 +76,31 @@
 
             return this.View(viewModel);
         }
+
+        [Route("[action]")]
+        public IActionResult ConfirmReservation()
+        {
+            return this.View();
+        }
+
+        [HttpPost]
+        [Route("[action]")]
+        public async Task<IActionResult> ConfirmReservation(CreateIdReservationInputModel inputModel)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(inputModel);
+            }
+
+            await this.adminService.ConfirmAsync(inputModel.Id);
+
+            return this.Redirect("/Administration/SuccessConfirm");
+        }
+
+        [Route("[action]")]
+        public IActionResult SuccessConfirm()
+        {
+            return this.View();
+        }
     }
 }

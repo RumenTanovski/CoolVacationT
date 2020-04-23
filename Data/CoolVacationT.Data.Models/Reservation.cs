@@ -25,12 +25,10 @@
 
         public virtual Period Period { get; set; }
 
-        //[Required]
         public int? PaymentId { get; set; }
 
         public virtual Payment Payment { get; set; }
 
-        //[Required]
         public int? RelaxProgramId { get; set; }
 
         public virtual RelaxProgram RelaxProgram { get; set; }

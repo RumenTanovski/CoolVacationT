@@ -1,0 +1,28 @@
+﻿@using CoolVacationT.Common
+@using CoolVacationT.Web.ViewModels.Administration.InputModels
+@model CreateIdReservationInputModel
+
+
+@{
+    this.ViewData["Title"] = "Confirm Reservation";
+}
+
+
+    <h1 class="display-3">Specify the reservation number</h1>
+
+<form asp-area="Administration" asp-controller="Admins" asp-action="ConfirmReservation" mtehod="post" class="form">
+
+    <div class="col-md-12">
+        <label asp-for="Id"></label>
+        <input asp-for="Id" class="form-control" />
+        <span asp-validation-for="Id" class="text-danger"></span>
+    </div>
+
+    <hr />
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>
+@section Scripts{
+    <partial name="_ValidationsScriptsPartial" />
+}

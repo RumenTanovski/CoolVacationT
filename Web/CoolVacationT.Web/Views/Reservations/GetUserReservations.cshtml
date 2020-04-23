@@ -15,9 +15,10 @@
             From -> @reservation.CreatedOn.ToString("dd/MM/yyyy")
         </div>
         <ul class="list-group list-group-flush">
+            <li class="list-group-item">Reservation number -> @reservation.Id.ToString()</li>
             <li class="list-group-item">
                 Confirmed -> @{if (reservation.Confirmed)
-                    { <p>Yes</p>}
+                    { <p>Yes!</p>}
                     else
                     { <p>No!</p>}
                 }

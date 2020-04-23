@@ -7,6 +7,8 @@
 
     public class ReservationViewModel : IMapFrom<Reservation>
     {
+        public int Id { get; set; }
+
         public bool Confirmed { get; set; }
 
         public int NoOfPeople { get; set; }

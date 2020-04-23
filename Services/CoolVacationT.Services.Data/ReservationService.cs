@@ -68,6 +68,7 @@
 
             IEnumerable<ReservationViewModel> allViewModel = reservations.Select(f => new ReservationViewModel
             {
+                Id = f.Id,
                 CreatedOn = f.CreatedOn,
                 Confirmed = f.Confirmed,
                 NoOfPeople = f.NoOfPeople,

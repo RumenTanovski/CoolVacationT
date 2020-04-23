@@ -11,15 +11,18 @@
 
     public class AdminService : IAdminService
     {
+        private readonly IDeletableEntityRepository<Reservation> reservationRepository;
         private readonly IDeletableEntityRepository<Payment> paymentRepository;
         private readonly IDeletableEntityRepository<FeedBack> feedBackRepository;
         private readonly IDeletableEntityRepository<ApplicationUser> userRepository;
 
         public AdminService(
+            IDeletableEntityRepository<Reservation> reservationRepository,
             IDeletableEntityRepository<Payment> paymentRepository,
             IDeletableEntityRepository<FeedBack> feedBackRepository,
             IDeletableEntityRepository<ApplicationUser> userRepository)
         {
+            this.reservationRepository = reservationRepository;
             this.paymentRepository = paymentRepository;
             this.feedBackRepository = feedBackRepository;
             this.userRepository = userRepository;
@@ -67,6 +70,15 @@
             .ToList();
 
             return allViewModel;
+        }
+
+        public async Task ConfirmAsync(int id)
+        {
+            Reservation reservation = this.reservationRepository.All().FirstOrDefault(f => f.Id == id);
+
+            reservation.Confirmed = true;
+
+            await this.reservationRepository.SaveChangesAsync();
         }
     }
 }

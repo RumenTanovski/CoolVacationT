@@ -12,5 +12,7 @@
         Task DeleteAsync(string id);
 
         IEnumerable<PaymentAdminViewModel> GetAllPayments();
+
+        Task ConfirmAsync(int id);
     }
 }

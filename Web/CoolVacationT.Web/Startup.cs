@@ -136,6 +136,8 @@
                         endpoints.MapControllerRoute("area:exists", "{controller=Admins}/{action=GetAllFeedBacks}/{id?}");
                         endpoints.MapControllerRoute("area:exists", "{controller=Admins}/{action=DeleteFeedBack}/{id?}");
                         endpoints.MapControllerRoute("area:exists", "{controller=Admins}/{action=Success}/{id?}");
+                        endpoints.MapControllerRoute("area:exists", "{controller=Admins}/{action=SuccessConfirm}/{id?}");
+
                         endpoints.MapControllerRoute("area:exists", "{controller=Admins}/{action=GetAllPayments}/{id?}");
 
                         endpoints.MapRazorPages();
