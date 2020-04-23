@@ -3,7 +3,7 @@
     using System.Collections.Generic;
     using System.Threading.Tasks;
 
-    using CoolVacationT.Web.ViewModels.Administartion.ViewModels;
+    using CoolVacationT.Web.ViewModels.Administration.ViewModels;
 
     public interface IAdminService
     {
@@ -14,5 +14,7 @@
         IEnumerable<PaymentAdminViewModel> GetAllPayments();
 
         Task ConfirmAsync(int id);
+
+        IEnumerable<ReservationViewModel> GetAllReservations();
     }
 }

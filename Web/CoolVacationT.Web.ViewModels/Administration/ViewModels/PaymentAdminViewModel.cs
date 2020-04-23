@@ -1,4 +1,4 @@
-﻿namespace CoolVacationT.Web.ViewModels.Administartion.ViewModels
+﻿namespace CoolVacationT.Web.ViewModels.Administration.ViewModels
 {
     using System;
 

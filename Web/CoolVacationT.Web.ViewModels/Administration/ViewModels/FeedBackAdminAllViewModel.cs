@@ -2,8 +2,6 @@
 {
     using System.Collections.Generic;
 
-    using CoolVacationT.Web.ViewModels.Administartion.ViewModels;
-
     public class FeedBackAdminAllViewModel
     {
         public FeedBackAdminAllViewModel(IEnumerable<FeedBackAdminViewModel> lists)

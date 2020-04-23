@@ -6,11 +6,12 @@
     using System.Threading.Tasks;
 
     using CoolVacationT.Data.Models;
+    using CoolVacationT.Web.ViewModels.Reservations.ViewModel;
 
     public interface IReservationService
     {
         Task<int> AddAsync(string id, int noOfPeople);
 
-        IEnumerable<Web.ViewModels.Reservations.ViewModel.ReservationViewModel> GetUserReservations(string id);
+        IEnumerable<ReservationViewModel> GetUserReservations(string id);
     }
 }

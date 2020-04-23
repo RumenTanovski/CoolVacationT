@@ -5,19 +5,24 @@
     ViewData["Title"] = "GetUserFeedBacks";
 }
 
-<h1 class="display-3">My Feed Backs</h1>
-
-@foreach (var feedBack in Model.FeedBacks.OrderByDescending(x=> x.CreatedOn))
+@if (Model.FeedBacks.Count() == 0)
+{<h1 class="display-3">No FeedBacks.</h1>}
+else
 {
-    <div class="card" style="width: 72rem;">
-        <div class="alert alert-info">
-            From -> @feedBack.CreatedOn
+    <h1 class="display-3">My Feed Backs</h1>
+
+    foreach (var feedBack in Model.FeedBacks.OrderByDescending(x => x.CreatedOn))
+    {
+        <div class="card" style="width: 72rem;">
+            <div class="alert alert-info">
+                From -> @feedBack.CreatedOn
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Rating -> @feedBack.Rating</li>
+                <li class="list-group-item">Comment -> @feedBack.Comment</li>
+            </ul>
         </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">Rating -> @feedBack.Rating</li>
-            <li class="list-group-item">Comment -> @feedBack.Comment</li>
-        </ul>
-    </div>
-    <p> </p>
+        <p> </p>
+    }
 }
 

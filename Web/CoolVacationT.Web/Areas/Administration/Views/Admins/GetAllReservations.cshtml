@@ -1,0 +1,39 @@
+﻿@using CoolVacationT.Common
+@using CoolVacationT.Web.ViewModels.Administration.ViewModels
+@model ReservationsAllViewModel
+
+@{
+    this.ViewData["Title"] = "All Reservations";
+}
+
+<h1 class="display-3">@this.ViewData["Title"]</h1>
+
+@foreach (var reservation in Model.Reservations.OrderByDescending(x => x.CreatedOn))
+{
+    <div class="card" style="width: 72rem;">
+        <div class="alert alert-info">
+            Reservation -> @reservation.Id / @reservation.CreatedOn.ToString("dd/MM/yyyy")
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">User Name -> @reservation.UserName </li>            
+            <li class="list-group-item">
+                Confirmed -> @{if (reservation.Confirmed)
+                    { <p>Yes!</p>}
+                    else
+                    { <p>No!</p>}
+                }
+            </li>
+            <li class="list-group-item">Number of people -> @reservation.NoOfPeople </li>
+            <li class="list-group-item">Arrival Date -> @reservation.ArrivalDate.ToString("dd/MM/yyyy") </li>
+            <li class="list-group-item">Depart Date -> @reservation.DepartDate.ToString("dd/MM/yyyy") </li>
+            <li class="list-group-item">Amaunt Paid -> @reservation.AmountPaid </li>
+            <li class="list-group-item">Document, number  -> @reservation.DocumentNumber </li>
+            <li class="list-group-item">Document picture -> <img src="@reservation.StringFileCloud" class="img-fluid" /></li>
+            <li class="list-group-item">Eco Trial -> @reservation.EcoTrail </li>
+            <li class="list-group-item">Party -> @reservation.Party </li>
+            <li class="list-group-item">Swimingpool -> @reservation.SwimmingPool </li>
+        </ul>
+    </div>
+    <p> </p>
+}
+

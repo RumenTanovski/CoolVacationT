@@ -102,5 +102,15 @@
         {
             return this.View();
         }
+
+        [Route("[action]")]
+        public IActionResult GetAllReservations()
+        {
+            var reservations = this.adminService.GetAllReservations();
+
+            ReservationsAllViewModel viewModel = new ReservationsAllViewModel(reservations);
+
+            return this.View(viewModel);
+        }
     }
 }
