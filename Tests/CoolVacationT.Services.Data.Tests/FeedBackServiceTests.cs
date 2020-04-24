@@ -67,21 +67,6 @@
             Assert.Equal(2, list.Count());
         }
 
-        // [Fact]
-        // public async void AddFeedBacksCorrectlyWithMock()
-        // {
-        //     var repository = new Mock<IDeletableEntityRepository<FeedBack>>();
-        //     repository.Setup(f => f.All())
-        //         .Returns(this.GetTestFeedBacksProfile()
-        //         .AsQueryable());
-        //
-        //     var service = new FeedBackService(repository.Object);
-        //
-        //     _ = await service.AddAsync("Stamat", 10, "Beshe gotino");
-        //     var list = service.GetAllFeedBacks().ToList();
-        //
-        //     Assert.Equal(3, list.Count);
-        // }
         [Fact]
         public void AddFeedBacksCorrectly()
         {
