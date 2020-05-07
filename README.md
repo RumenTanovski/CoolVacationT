@@ -4,6 +4,12 @@ https://velena.azurewebsites.net - temporarily not working on Azure
 
 Important appsettings.json absent
 
+
+A CoolVacationT is web application for Guest House 
+- registration, feedbacks, reservations, confirmation , etc.
+
+🎯 My project for the ASP.NET Core course at SoftUni.
+
 ⚒️ Built With
 
 Technologies, Frameworks and Development Techniques:
